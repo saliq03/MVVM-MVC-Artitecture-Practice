@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mvvm_artitecture/res/routes/routes_name.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -24,7 +25,11 @@ class _SplashScreenState extends State<SplashScreen> {
 
         OutlinedButton(onPressed: (){
           Get.updateLocale(Locale('ur','PK'));
-        }, child: Text("Urdu"))
+        }, child: Text("Urdu")),
+
+        OutlinedButton(onPressed: (){
+         Get.toNamed(RoutesName.HomeScreen);
+        }, child: Text("home"))
       ],),
     );
   }
