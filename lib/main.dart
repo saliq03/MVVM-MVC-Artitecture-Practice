@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'MVVM practice',
+      debugShowCheckedModeBanner: false,
       translations: Languages(),
       locale: Locale('en','US'),
       fallbackLocale: Locale('en','US'),
