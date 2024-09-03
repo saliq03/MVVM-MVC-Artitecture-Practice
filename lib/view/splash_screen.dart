@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mvvm_artitecture/res/assets/image_assets.dart';
 import 'package:mvvm_artitecture/res/routes/routes_name.dart';
 import 'package:mvvm_artitecture/utils/utils.dart';
 
@@ -30,7 +31,8 @@ class _SplashScreenState extends State<SplashScreen> {
 
         OutlinedButton(onPressed: (){
          Get.toNamed(RoutesName.HomeScreen);
-        }, child: Text("home"))
+        }, child: Text("home")),
+        Image(image: AssetImage(ImageAssets.saliq))
       ],),
       floatingActionButton: FloatingActionButton(onPressed: (){
         // Utils.toastMessage("this is a toast messatge");
