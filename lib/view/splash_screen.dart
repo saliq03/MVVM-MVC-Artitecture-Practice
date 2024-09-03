@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mvvm_artitecture/res/routes/routes_name.dart';
+import 'package:mvvm_artitecture/utils/utils.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -31,6 +32,11 @@ class _SplashScreenState extends State<SplashScreen> {
          Get.toNamed(RoutesName.HomeScreen);
         }, child: Text("home"))
       ],),
+      floatingActionButton: FloatingActionButton(onPressed: (){
+        // Utils.toastMessage("this is a toast messatge");
+        Utils.snackbar("snackbar", "this is a snackbar");
+      }),
+
     );
   }
 }
