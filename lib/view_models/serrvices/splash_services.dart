@@ -4,9 +4,10 @@ import 'package:mvvm_artitecture/res/routes/routes_name.dart';
 
 class SplashServices{
   isLoggedIn(){
-    Timer(Duration(seconds: 2),
+    Timer(Duration(seconds: 3),
         (){
-      Get.toNamed(RoutesName.loginView);
+      // Get.toNamed(RoutesName.loginView);
+      Get.offNamed(RoutesName.loginView);
         });
   }
 }

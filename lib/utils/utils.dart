@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 class Utils {
   static void fieldFocusChange(BuildContext context,FocusNode current,FocusNode next){
     current.unfocus();
-    Focus.of(context).requestFocus(next);
+    FocusScope.of(context).requestFocus(next);
   }
   static toastMessage(String message){
     Fluttertoast.showToast(msg: message,
