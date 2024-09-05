@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mvvm_artitecture/res/colors/app_colors.dart';
@@ -60,12 +62,16 @@ class _LoginViewState extends State<LoginView> {
                  ),
                ),
               const SizedBox(height: 30,),
-               RoundButton(title: "login".tr, onPress: (){
-                if(_formKey.currentState!.validate()){
+               Obx((){
+                 return RoundButton(title: "login".tr, onPress: (){
+                   if(_formKey.currentState!.validate()){
+                     loginController.login();
+                   }
+                 },
+                   width: 200,
+                   loading: loginController.loading.value,);
+               })
 
-                }
-               },
-               width: 200,)
              ],
           ),
         ),
