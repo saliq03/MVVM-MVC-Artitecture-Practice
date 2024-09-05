@@ -32,7 +32,7 @@ class NetworkApiServices extends BaseApiServices{
     dynamic jsonResponse;
     try{
       final response = await http.post(Uri.parse(Url),
-      body: jsonEncode(data)).timeout(const Duration(seconds: 10));
+      body: data).timeout(const Duration(seconds: 10));
       jsonResponse=ReturnResponse(response);
     }on SocketException{
       throw InternetException('');
@@ -43,11 +43,12 @@ class NetworkApiServices extends BaseApiServices{
   }
 
   dynamic ReturnResponse(http.Response response){
+
     switch(response.statusCode){
       case 200:
        return jsonDecode(response.body);
       case 400:
-        throw InvalidUrl;
+        return jsonDecode(response.body);
       default:
         throw FetchDataException('Error occured while communicating with server '+response.body.toString());
     }

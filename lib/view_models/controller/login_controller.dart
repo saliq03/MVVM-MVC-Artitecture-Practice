@@ -11,19 +11,26 @@ class LoginController extends GetxController{
   final passwordFocusNode=FocusNode().obs;
 
   final _api=LoginRepository();
-  final  loading=true.obs;
+  final  loading=false.obs;
   login(){
-    loading.value=false;
+    loading.value=true;
     Map data={
-      "email": emailController.value,
-      "password": passwordController.value
+      "email": emailController.value.text,
+      "password": passwordController.value.text
     };
     _api.loginApi(data).then((value){
-      loading.value=false;
-      Utils.snackbar('Login', 'Login successful');
+
+      if(value['error']=="user not found"){
+        Utils.snackbar('Login', 'User not found');
+      }
+      else{
+        Utils.snackbar('Login', 'Login successful');
+      }
+
+
     }).onError((error,stackTree){
-      loading.value=false;
       Utils.snackbar('Login', error.toString());
     });
+    loading.value=false;
   }
 }
