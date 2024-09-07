@@ -17,6 +17,15 @@ class UserPrefrences {
       token: token
     );
   }
+  
+  SetLoginKey(bool value) async {
+    SharedPreferences sp=await SharedPreferences.getInstance();
+    sp.setBool('islogin', value);
+  }
+  Future<bool?> GetLoginKey() async {
+    SharedPreferences sp=await SharedPreferences.getInstance();
+    return sp.getBool('islogin');
+  }
   Future<bool> RemoveUser() async {
     SharedPreferences sp=await SharedPreferences.getInstance();
     sp.clear();

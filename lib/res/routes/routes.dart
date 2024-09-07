@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:mvvm_artitecture/res/routes/routes_name.dart';
+import 'package:mvvm_artitecture/view/home/home_screen.dart';
 import 'package:mvvm_artitecture/view/login/login_view.dart';
 import 'package:mvvm_artitecture/view/splash_screen.dart';
 
@@ -16,6 +17,12 @@ class AppRoutes{
         page: ()=>LoginView(),
         transitionDuration: Duration(milliseconds: 250),
         transition: Transition.leftToRightWithFade),
+
+    GetPage(
+        name: RoutesName.homeScreen,
+        page: ()=>HomeScreen(),
+        transitionDuration: Duration(milliseconds: 250),
+        transition: Transition.rightToLeftWithFade),
 
   ];
 }
