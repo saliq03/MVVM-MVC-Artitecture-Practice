@@ -5,6 +5,9 @@ import 'package:get/get.dart';
 import 'package:mvvm_artitecture/res/colors/app_colors.dart';
 import 'package:mvvm_artitecture/res/components/round_button.dart';
 import 'package:mvvm_artitecture/utils/utils.dart';
+import 'package:mvvm_artitecture/view/login/widgets/input_email_widget.dart';
+import 'package:mvvm_artitecture/view/login/widgets/input_password_widget.dart';
+import 'package:mvvm_artitecture/view/login/widgets/login_button_widget.dart';
 import 'package:mvvm_artitecture/view_models/controller/login_controller.dart';
 
 class LoginView extends StatefulWidget {
@@ -32,45 +35,14 @@ class _LoginViewState extends State<LoginView> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
              children: [
-               TextFormField(
-                 controller: loginController.emailController.value,
-                 focusNode: loginController.emailFocusNode.value,
-                 validator: (value){
-                   if(value!.isEmpty){
-                     return 'enter email'.tr;
-                   }},
-                 onFieldSubmitted: (value){
-                   Utils.fieldFocusChange(context, loginController.emailFocusNode.value, loginController.passwordFocusNode.value);
-                 },
-                 decoration: InputDecoration(
-                   hintText: 'email hint'.tr,
-                   border: OutlineInputBorder()
-                 ),
-               ),
-              SizedBox(height: 10,),
-               TextFormField(
-                 controller: loginController.passwordController.value,
-                 focusNode: loginController.passwordFocusNode.value,
-                 validator: (value){
-                   if(value!.isEmpty){
-                     return 'enter password'.tr;
-                   }},
-
-                 decoration: InputDecoration(
-                     hintText: 'password hint'.tr,
-                     border: OutlineInputBorder()
-                 ),
-               ),
-              const SizedBox(height: 30,),
+               const InputEmailWidget(),
+               const SizedBox(height: 10,),
+               const InputPasswordWidget(),
+               const SizedBox(height: 30,),
                Obx((){
-                 return RoundButton(title: "login".tr, onPress: (){
-                   if(_formKey.currentState!.validate()){
-                     loginController.login();
-                   }
-                 },
-                   width: 200,
-                   loading: loginController.loading.value,);
+                 return LoginButtonWidget(formKey: _formKey);
                })
+
 
              ],
           ),

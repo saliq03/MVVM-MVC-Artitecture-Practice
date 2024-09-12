@@ -17,6 +17,7 @@ class LoginController extends GetxController{
   final _api=LoginRepository();
   final  loading=false.obs;
   login(){
+    print("method called");
     loading.value=true;
     Map data={
       "email": emailController.value.text,

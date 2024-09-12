@@ -19,4 +19,16 @@ class HomeController extends GetxController{
      setRequestStatus(Status.ERROR);
    });
   }
+
+
+  void Refresh(){
+    setRequestStatus(Status.LOADING);
+    _api.homeApi().then((value){
+      setRequestStatus(Status.SUCCESS);
+      setUserList(value);
+
+    }).onError((error, stackTree){
+      setRequestStatus(Status.ERROR);
+    });
+  }
 }
