@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import '../../../view_models/controller/login_controller.dart';
 
 class InputPasswordWidget extends StatelessWidget {
-  const InputPasswordWidget({super.key});
-
+  final loginController=Get.put(LoginController());
   @override
   Widget build(BuildContext context) {
-    final loginController=Get.put(LoginController());
+
     return TextFormField(
       controller: loginController.passwordController.value,
       focusNode: loginController.passwordFocusNode.value,

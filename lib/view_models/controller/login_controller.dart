@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:mvvm_artitecture/models/login/login_response_model.dart';
 import 'package:mvvm_artitecture/repository/login_repository/login_repository.dart';
-import 'package:mvvm_artitecture/res/routes/routes.dart';
+
 import 'package:mvvm_artitecture/res/routes/routes_name.dart';
 import 'package:mvvm_artitecture/utils/utils.dart';
 import 'package:mvvm_artitecture/view_models/user_prefrences/user_prefrences.dart';
@@ -16,9 +16,11 @@ class LoginController extends GetxController{
 
   final _api=LoginRepository();
   final  loading=false.obs;
-  login(){
-    print("method called");
+  void changeLoading()=> loading.value=false;
+  void login(){
     loading.value=true;
+    print("method called");
+
     Map data={
       "email": emailController.value.text,
       "password": passwordController.value.text
@@ -27,6 +29,7 @@ class LoginController extends GetxController{
 
       if(value['error']=="user not found"){
         Utils.snackbar('Login', 'User not found');
+        loading.value=false;
       }
       else{
 
@@ -37,12 +40,16 @@ class LoginController extends GetxController{
           print(e.toString());
         });
         Utils.snackbar('Login', 'Login successful');
+        loading.value=false;
+
       }
 
 
     }).onError((error,stackTree){
       Utils.snackbar('Login', error.toString());
+      loading.value=false;
+
     });
-    loading.value=false;
+
   }
 }

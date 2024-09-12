@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mvvm_artitecture/res/getx_localization/languages.dart';
 import 'package:mvvm_artitecture/res/routes/routes.dart';
+import 'package:mvvm_artitecture/view/login/login_view.dart';
 
 
 
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
+      home: LoginView(),
       getPages: AppRoutes.appRoutes(),
     );
   }

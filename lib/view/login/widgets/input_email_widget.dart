@@ -7,11 +7,12 @@ import '../../../utils/utils.dart';
 import '../../../view_models/controller/login_controller.dart';
 
 class InputEmailWidget extends StatelessWidget {
-  const InputEmailWidget({super.key});
+  InputEmailWidget({super.key});
 
+  final loginController=Get.put(LoginController());
   @override
   Widget build(BuildContext context) {
-    final loginController=Get.put(LoginController());
+
     return TextFormField(
       controller: loginController.emailController.value,
       focusNode: loginController.emailFocusNode.value,

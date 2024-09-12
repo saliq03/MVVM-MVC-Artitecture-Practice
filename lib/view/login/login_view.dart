@@ -35,13 +35,11 @@ class _LoginViewState extends State<LoginView> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
              children: [
-               const InputEmailWidget(),
+               InputEmailWidget(),
                const SizedBox(height: 10,),
-               const InputPasswordWidget(),
+               InputPasswordWidget(),
                const SizedBox(height: 30,),
-               Obx((){
-                 return LoginButtonWidget(formKey: _formKey);
-               })
+               LoginButtonWidget(formKey: _formKey)
 
 
              ],

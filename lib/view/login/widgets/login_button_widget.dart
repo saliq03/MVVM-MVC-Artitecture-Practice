@@ -7,8 +7,7 @@ import '../../../view_models/controller/login_controller.dart';
 
 class LoginButtonWidget extends StatelessWidget {
   final formKey;
-
-  const LoginButtonWidget({super.key,required this.formKey});
+   LoginButtonWidget({super.key,required this.formKey});
 
 
 
@@ -16,13 +15,17 @@ class LoginButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final loginController=Get.put(LoginController());
-      return RoundButton(title: "login".tr, onPress: (){
-        if(formKey.currentState!.validate()){
+      return Obx((){
+        return RoundButton(title: "login".tr, onPress: (){
+          if(formKey.currentState!.validate()){
 
-          loginController.login();
-        }
-      },
-        width: 200,
-        loading: loginController.loading.value,);
+            loginController.login();
+          }
+        },
+          width: 200,
+          loading: loginController.loading.value,);
+      });
+
+
   }
 }
