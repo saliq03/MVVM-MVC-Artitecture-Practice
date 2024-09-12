@@ -35,6 +35,7 @@ class LoginController extends GetxController{
 
         UserPrefrences().SaveUser(LoginResponseModel.fromJson(value)).then((val){
           UserPrefrences().SetLoginKey(true);
+          Get.delete<LoginResponseModel>();
           Get.toNamed(RoutesName.homeScreen);
         }).onError((e,stackTree){
           print(e.toString());
